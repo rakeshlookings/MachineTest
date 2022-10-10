@@ -1,0 +1,92 @@
+{
+    "MESSAGES": {
+        "SUCCESS": "Success",
+        "DUPLICATE_RECORD_EXISTS_WITH_FOLLOWING_FIELDS": "Another record exists with following fields",
+        "BAD_REQUEST": "Bad Request",
+        "FAILED_UPDATE": "Failed to update",
+        "NOT_AUTHORIZED": "You are not authorized to access this resource",
+        "INVALID_VALUE_STATUS": "Invalid value for status",
+        "APARTMENT_NAME_EXIST":"This aprtment name exist",
+        "DUPLICATE_APARTMENT": "This apartment name is already taken",
+        "DUPLICATE_COMPLEX": "This complex name is already taken",
+        "DUPLICATE_USER_EMAIL": "This email is already taken",
+        "DUPLICATE_USER_PERSONALID": "This personal number is already taken",
+        "DUPLICATE_USER_BANKID": "This bank id is already taken",
+        "DUPLICATE_USER_PHONE": "This phone number is already taken",
+        "INTERNAL_SERVER_ERROR": "Oops something went wrong",
+        "DEFAULT_ERROR": "Something unexpected happened, we're working on it",
+        "UNAUTHORIZED": "Unauthorized",
+        "REQUIRE_OLD_PASSWORD": "require old password",
+        "ACCESS_DENIED": "Access Denied",
+        "ACCESS_DENIED_THIRD_PARTY": "Access Denied From third party server",
+        "FORBIDDEN": "Forbidden",
+        "USER_INACTIVE": "User is inactive",
+        "INVALID_LOGIN": "Invalid login credentials",
+        "TOKEN_EXPIRED": "Token expired",
+        "INVALID_TOKEN": "Invalid token",
+        "INVALID_TENANT": "This tenant does not comes under you or user is not a tenant",
+        "BADLY_FORMED_REQUEST": "Badly formed request",
+        "DUPLICATE_NAME": "Duplicate name",
+        "INVALID_USER_IDS": "Invalid user IDs",
+        "DUPLICATE_RECORD": "Duplicate record",
+        "INVALID_USER": "Invalid user",
+        "INVALID_APARTMENT_IDS": "Invalid apartment IDs",
+        "INVALID_COMPLEX": "Invalid complex",
+        "INVALID_PHONE": "Invalid phone number",
+        "COMPLEX_IN_USE": "Complex is linked to an apartment",
+        "COMPLEX_NOT_FOUND": "Complex not found",
+        "APARTMENT_IN_USE": "Apartment has an owner",
+        "OWNER_HAS_ONE_APARTMENT": "Owner has no other apartments",
+        "USER_NOT_FOUND": "User not found",
+        "NO_PASSWORD_FOUND": "Please submit your existing password",
+        "NO_UPDATE_PASSWORD_FOUND": "Please submit your new password",
+        "APARTMENT_NOT_REMOVED": "Could not remove apartment",
+        "BODY_MISSING": "Empty body object",
+        "MANDATORY_FIELDS_MISSING": "Missing mandatory fields or invalid syntax",
+        "PN_INVALID": "Personal number should be of either ten digits or twelve digits length",
+        "INCORRECT_PASSWORD": "Incorrect password",
+        "INVALID_INGEST_RECORD": "Invalid ingest record",
+        "CSV_MISSING": "Unable to find the CSV file",
+        "ALARM_HISTORY_NOT_FOUND":"Alarm history could not fetched",
+        "ACCESS_TOKEN_NOT_FOUND":"Clould not fetch alarm history"
+    },
+    "OTP_MESSAGE": "Please use the following OTP to login : __otp__",
+    "DEFAULTS": {
+        "COMPLEX": "1"
+    },
+    "ROLES": {
+        "SUPER_ADMIN": "SUPER_ADMIN",
+        "DOCTOR": "DOCTOR",
+        "USER": "USER"
+    },
+    "SUPPORTTICKET_STATUS": {
+        "PENDING": "OPEN",
+        "COMPLETED": "CLOSED",
+        "DROPPED": "DROPPED"
+    },
+    "USER_STATUS": {
+        "ACTIVE": "ACTIVE",
+        "DISABLED": "DISABLED"
+    },
+    "ALARM_STATUS": {
+        "NO_ALARMS": "No alarms",
+        "ACTION_TAKEN": "Action taken",
+        "ACTION_REQUIRED": "Action required"
+    },
+    "AGREEMENT_TYPE": {
+        "CHAT": "Chat"
+    },
+    "APARTMENT_STATUS": {
+        "ACTIVE": "ACTIVE",
+        "DORMANT": "DORMANT",
+        "REMOVED": "REMOVED"
+    },
+    "URLS" : {
+        "SKY_RESPONSE_TOKEN": "https://admin.skyresponse.com/api/Token",
+        "SKY_RESPONSE_LIST": "https://admin.skyresponse.com/api/users?uriParams.q=",
+        "SKY_RESPONSE_HISTORY": "https://admin.skyresponse.com/api/alarms/search?PageSize=__limit__&uriParams.q=__phone__&uriParams.o=date_desc", 
+        "SKY_RESPONSE_DETAILS": "https://admin.skyresponse.com/api/alarms/__alarmId__",
+        "LIMIT": "1000"
+    },
+    "BUCKET_NAME" : "eliot-user-records"
+}
