@@ -1,12 +1,12 @@
 const User = require('../models/user.model')
-const {ROLES} = require('../utils/constants.json')
+const {ROLES, SLOTS} = require('../utils/constants.json')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const ENV = process.env
 const addUser = async(body) => {
         const passwordHash = await bcrypt.hash(body.password,Number(ENV.SALT))
         const userObject =  new User({
-            name:body.name, role: body.role, expertise:body.expertise, phone: body.phone, description: body.description,
+            name:body.name, role: ROLES.USER, expertise:body.expertise, phone: body.phone, description: body.description,
             password:passwordHash
         })
         const user = await userObject.save()
@@ -25,9 +25,18 @@ const addUser = async(body) => {
         }
 }
 
-const addDoctor = async(body) => {
+const addDoctor = async(req) => {
+    const body = req.body
+    console.log(Object.keys(req.headers))
+    const token = req.headers.authorization.split(':')[1]
+    const role = jwt.verify(token, ENV.JWT_KEY)?.user?.role
+    console.log(jwt.verify(token, ENV.JWT_KEY))
+    if (role !== ROLES.SUPER_ADMIN) {
+        throw new Error('Unauthorized entry')
+    }
     const userObject =  new User({
-        name:body.name, role: ROLES.DOCTOR, expertise:body.expertise, phone: body.phone, description: body.description
+        name:body.name, role: ROLES.DOCTOR, expertise:body.expertise, phone: body.phone,
+        description: body.description,availableSlots:body.availableSlots
     })
     const user = await userObject.save()
 
@@ -36,6 +45,64 @@ const addDoctor = async(body) => {
         code: 201,
         payload:user,
         message: 'new user added to the database'
+    }
+}
+
+const updateDoctor = async({body, params}) => {
+
+    const token = header['Authorization'].split(':')[1]
+    const role = jwt.verify(token, ENV.JWT_KEY).ROLE
+    if (role !== ROLES.SUPER_ADMIN) {
+        throw new Error('Unautorized entry')
+    }
+    
+    const user = await User.updateOne({ _id:params.id }, body)
+
+    return {
+        success: true,
+        code: 201,
+        message: 'updated'
+    }
+}
+
+const deleteDoctor = async({body, params}) => {
+
+    const token = header['Authorization'].split(':')[1]
+    const role = jwt.verify(token, ENV.JWT_KEY).ROLE
+    if (role !== ROLES.SUPER_ADMIN) {
+        throw new Error('Unautorized entry')
+    }
+    
+    const user = await User.deleteOne({ _id:params.id })
+
+    return {
+        success: true,
+        code: 200,
+        message: 'updated'
+    }
+}
+
+const listDoctor = async({body, params}) => {
+    
+    const user = await User.find()
+
+    return {
+        success: true,
+        code: 200,
+        payload:user,
+        message: 'updated'
+    }
+}
+
+const getDoctor = async({params}) => {
+    
+    const user = await User.find({ _id: params.id})
+
+    return {
+        success: true,
+        code: 200,
+        payload:user,
+        message: 'updated'
     }
 }
 
@@ -90,9 +157,27 @@ const getUserProfile = async(req) => {
     }
 }
 
+const getSlots = async(req) => {
+    
+    return {
+        success: true,
+        code: 200,
+        data:SLOTS,
+        message: 'slots fetched sucessfully'
+    }
+}
+
+
+
+
 module.exports = {
     addUser,
     getUserProfile,
     login,
-    addDoctor
+    addDoctor,
+    updateDoctor,
+    deleteDoctor,
+    listDoctor,
+    getDoctor, 
+    getSlots
 }

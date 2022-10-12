@@ -8,10 +8,10 @@ userRouter.post('/login', validators.loginValidator , UserController.login)
 
 userRouter.post('/', validators.addUserValidator ,UserController.addUser)
 
-userRouter.post('/add-doctor', validators.addUserValidator ,UserController.addDoctor)
-userRouter.put('/update-doctor/:id', validators.addUserValidator ,UserController.updateDoctor)
-userRouter.delete('/remove-doctor/:id', validators.addUserValidator ,UserController.removeDoctor)
-userRouter.get('/list-doctor', validators.addUserValidator ,UserController.listDoctors)
-userRouter.get('/get-doctor/:id', validators.addUserValidator ,UserController.getDoctor)
+userRouter.post('/add-doctor', validators.addDctorValidator ,UserController.addDoctor)
+userRouter.put('/update-doctor/:id', UserController.updateDoctor)
+userRouter.delete('/remove-doctor/:id', UserController.deleteDoctor)
+userRouter.get('/list-doctor', UserController.listDoctors)
+userRouter.get('/get-doctor/:id', UserController.getDoctor)
 
 module.exports = userRouter

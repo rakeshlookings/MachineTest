@@ -12,7 +12,7 @@ const addUser = async(req,res) => {
 
 const addDoctor = async(req,res) => {
     try {
-        const response = await userService.addDoctor(req.body)
+        const response = await userService.addDoctor(req)
         return res.status(201).json(response)
     } catch(err) {
         return res.send(err.message)
@@ -28,9 +28,9 @@ const updateDoctor = async(req,res) => {
     }
 }
 
-const removeDoctor = async(req,res) => {
+const deleteDoctor = async(req,res) => {
     try {
-        const response = await userService.updateDoctor(req.body)
+        const response = await userService.deleteDoctor(req.body)
         return res.status(201).json(response)
     } catch(err) {
         return res.send(err.message)
@@ -46,18 +46,9 @@ const listDoctors = async(req,res) => {
     }
 }
 
-const showDoctorProfile = async(req,res) => {
+const getDoctor = async(req,res) => {
     try {
-        const response = await userService.updateDoctor(req.body)
-        return res.status(201).json(response)
-    } catch(err) {
-        return res.send(err.message)
-    }
-}
-
-const getUserProfile = async(req,res) => {
-    try {
-        const response = await userService.getUserProfile(req)
+        const response = await userService.getDoctor(req)
         return res.status(201).json(response)
     } catch(err) {
         return res.send(err.message)
@@ -84,7 +75,10 @@ const login = async(req,res) => {
 
 module.exports = {
     addUser,
-    getUserProfile,
     login,
-    addDoctor
+    addDoctor,
+    updateDoctor,
+    deleteDoctor,
+    listDoctors,
+    getDoctor
 }

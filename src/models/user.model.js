@@ -24,7 +24,13 @@ const userSchema = new mongoose.Schema({
     },
     expertise: {
         type: String
-    }
+    },
+    availableSlots: [
+        {
+            day:String,
+           slots:[String]
+        }
+    ]
 
 })
 
