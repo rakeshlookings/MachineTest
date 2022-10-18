@@ -25,6 +25,7 @@ con.on('open', async () => {
 app.use(express.json())
 
 app.get('/', (req,res)=> {
+  console.log('app get')
   res.send("started")
  })
 
@@ -32,6 +33,6 @@ app.get('/', (req,res)=> {
 
 app.use('/api/v1', router)
 
-const PORT = process.env.PORT || 8080
+const PORT = 8000 // process.env.PORT || 8080
 
 app.listen(PORT, () => console.log('server started'))
