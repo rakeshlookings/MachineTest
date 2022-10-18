@@ -4,7 +4,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const ENV = process.env
 
-const app = express({ strict: true })
+const app = express()
 
 let connectionUrl = 'mongodb+srv://username:password@database.faufozt.mongodb.net/?retryWrites=true&w=majority'
 const connectionValues = {
