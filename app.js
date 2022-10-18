@@ -27,9 +27,9 @@ app.get('/', (req,res)=> {
   res.send("started")
  })
 
-const router = require('./src/routes/Index.router')
+// const router = require('')
 
-app.use('/api/v1', router)
+// app.use('/api/v1', router)
 
 const PORT = process.env.PORT || 8080
 
