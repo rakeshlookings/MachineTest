@@ -23,7 +23,7 @@ con.on('open', async () => {
 
 app.use(express.json())
 
-app.get('./', (req,res)=> {
+app.get('/', (req,res)=> {
   res.send("started")
  })
 
