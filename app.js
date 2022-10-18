@@ -1,4 +1,4 @@
-const router = reuire('./src/routes/Index.router')
+const router = reuire('./src/routes')
 require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
