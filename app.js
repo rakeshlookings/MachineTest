@@ -31,4 +31,6 @@ const indexRouter = require('./src/routes/Index.router')
 
 app.use('/api/v1', indexRouter)
 
-module.exports = app;
+const PORT = process.env.PORT || 8080
+
+app.listen(PORT, () => console.log('server started'))
