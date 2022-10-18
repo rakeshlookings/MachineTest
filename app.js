@@ -27,7 +27,7 @@ app.get('/', (req,res)=> {
   res.send("started")
  })
 
-const indexRouter = require('./src/routes/index.router')
+const indexRouter = require('./src/routes/Index.router')
 
 app.use('/api/v1', indexRouter)
 
