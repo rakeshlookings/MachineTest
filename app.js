@@ -23,6 +23,10 @@ con.on('open', async () => {
 
 app.use(express.json())
 
+app.get('./', (req,res)=> {
+  res.send("started")
+ })
+
 const indexRouter = require('./src/routes/index.router')
 
 app.use('/api/v1', indexRouter)
