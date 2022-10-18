@@ -1,3 +1,4 @@
+import router from './src/routes/Index.router'
 require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
@@ -29,7 +30,7 @@ app.get('/', (req,res)=> {
 
 // const router = require('')
 
-// app.use('/api/v1', router)
+app.use('/api/v1', router)
 
 const PORT = process.env.PORT || 8080
 
