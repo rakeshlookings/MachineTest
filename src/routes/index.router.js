@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const bookRouter = require('./book.routes')
+const LedgerRouter = require('./Ledger.routes')
 
-router.use('/book', bookRouter)
+router.use('/ledger', LedgerRouter)
 
 module.exports = router
