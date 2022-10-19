@@ -24,10 +24,9 @@ con.on('open', async () => {
 
 app.use(express.json())
 
-app.get('/', (req,res)=> {
-  console.log('app get')
-  res.send("started")
- })
+app.get("/", (req, res) => {
+  res.send("Express on Vercel");
+});
 
 // const router = require('')
 
